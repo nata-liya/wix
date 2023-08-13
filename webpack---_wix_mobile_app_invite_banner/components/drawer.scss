@@ -1,0 +1,170 @@
+$drawerHeight: 150px;
+$drawerRemoveHeight: -260px;
+$animationDurationIn: 520ms;
+$animationDurationOut: 260ms;
+:export {
+  animationDuration: $animationDurationIn;
+  $drawerHeight: $drawerHeight;
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY($drawerHeight);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.preferredAppIcon {
+  height: 40px;
+  width: 40px;
+}
+
+.drawer {
+  position: fixed;
+  align-items: center;
+  bottom: -520px;
+  width: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  height: $drawerHeight;
+  z-index: 2147483646;
+  display: flex;
+  flex-direction: column;
+  font-family: Helvetica, Arial, sans-serif;
+  padding-top: 15px;
+  text-align: center;
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px 1px rgba(0, 0, 0, 0.15);
+  backdrop-filter: black;
+  will-change: transform;
+}
+
+.drawer-show {
+  transition: bottom $animationDurationIn ease-out;
+  bottom: 0;
+}
+
+.drawer-remove {
+  transition: bottom $animationDurationOut ease-out;
+  bottom: $drawerRemoveHeight;
+}
+
+.drawerBackdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0);
+  z-index: 2147483645;
+  content: '';
+}
+
+.noImageBackground {
+  height: 13px;
+}
+
+.placeImageBackground {
+  margin-top: -55px;
+  height: 74px;
+  width: 74px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #eee;
+  background: #FFFFFF;
+}
+
+.placeImage {
+   height: 70px;
+   width: 70px;
+   object-fit: cover;
+   border-radius: 15px;
+   background: black;
+ }
+
+.preLoadPlaceImage {
+  margin-top: -110px;
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  display: flex;
+  position: absolute;
+  z-index: 2147483645;
+}
+
+.close-button {
+  padding: 10px 14px 14px;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+  svg {
+    width: 8px;
+    height: 8px;
+  }
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  left: 0;
+  top: 0;
+}
+
+@font-face {
+  font-family: WixMadeforDisplay_W_Bd;
+  src: url('../assets/fonts/WixMadeforDisplay_W_Bd.woff') format('woff');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: WixMadeforDisplay_W_Rg;
+  src: url('../assets/fonts/WixMadeforDisplay_W_Rg.woff') format('woff');
+  font-weight: 100;
+}
+
+.title {
+  margin-top: 10px;
+  margin-bottom: 8px;
+  font-family: WixMadeforDisplay_W_Bd, sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  font-size: 16px;
+  text-align: center;
+  color: #000000;
+}
+
+.subtitle {
+  max-width: 220px;
+  margin-bottom: 10px;
+  font-family: WixMadeforDisplay_W_Rg, sans-serif;
+  font-style: normal;
+  font-weight: 100;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+  color: #4D5963;
+}
+
+.openButton {
+  padding: -4px;
+  border-radius: 20px;
+  color: #FFF;
+  height: 28px;
+  min-width: 28%;
+  font-family: WixMadeforDisplay_W_Bd, sans-serif;
+  text-align: center;
+  font-size: 12px;
+  background-color: #116DFF;
+}
+
+.closeButtonV2 {
+  padding: -4px;
+  margin-top: 3px;
+  border-radius: 20px;
+  color: #116DFF;
+  height: 28px;
+  min-width: 28%;
+  font-family: WixMadeforDisplay_W_Bd, sans-serif;
+  text-align: center;
+  font-size: 12px;
+  background-color: #FFF;
+}
